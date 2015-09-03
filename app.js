@@ -8,7 +8,7 @@ var request = require('request');
 var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOLAB_URI, function (err) {
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/test", function (err) {
   if(err){
     console.log(err);
   } else {
