@@ -9,5 +9,6 @@ var setRequestEndpoint = require("../helpers/setRequestEndpoint")
 router.post('/login', auth.login);
 router.get('/api/schedule',setRequestEndpoint(schedule));
 router.get('/api/grades',setRequestEndpoint(grades));
+router.get('/api/email',setRequestEndpoint(mail));
 
 module.exports = router;
