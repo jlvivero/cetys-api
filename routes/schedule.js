@@ -1,43 +1,28 @@
-var request = require('request');
 var cheerio = require('cheerio');
-var cookieJar = request.jar();
 
-function setCookiesOnJar(cookiesString) {
-  var url = "http://micampus.mxl.cetys.mx";
+var schedule = {
+  url: 'http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Horario',
+  parse: function(body){
+    var i = 0;
+    var j = 1;
 
-  var cookies = cookiesString.split(" ");
+    function Course(coursecode, name, teacher, groupcode, coursetype) {
+      this.coursecode = coursecode;
+      this.name = name;
+      this.teacher = teacher;
+      this.groupcode = groupcode;
+      this.coursetype = coursetype;
+      this.sessions = [];
+    }
 
-  cookies.forEach(function(cookie){
-    cookieJar.setCookie(cookie, url);
-  });
-}
-module.exports = function(req, res) {
+    function Session(day, houri, hourf, room) {
+      this.day = day;
+      this.houri = houri;
+      this.hourf = hourf;
+      this.room = room;
+    }
 
-  setCookiesOnJar(res.locals.cookies);
-  var getOptions = {
-    url: 'http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Horario',
-    jar: cookieJar
-  };
-  var i = 0;
-  var j = 1;
-
-  function Course(coursecode, name, teacher, groupcode, coursetype) {
-    this.coursecode = coursecode;
-    this.name = name;
-    this.teacher = teacher;
-    this.groupcode = groupcode;
-    this.coursetype = coursetype;
-    this.sessions = [];
-  }
-
-  function Session(day, houri, hourf, room) {
-    this.day = day;
-    this.houri = houri;
-    this.hourf = hourf;
-    this.room = room;
-  }
-
-  request.get(getOptions, function(err, response, body) {
+  
     var $ = cheerio.load(body);
     var rows = $('table').eq(4).children('tr:has(td[colspan!="7"])');
     if(rows.is('tbody'))
@@ -100,6 +85,8 @@ module.exports = function(req, res) {
       jsonResponse.courses.push(course);
     }
     console.log(JSON.stringify(jsonResponse));
-    res.send(JSON.stringify(jsonResponse));
-  });
-}
+    return jsonResponse;
+  }
+};
+module.exports = schedule;
+  

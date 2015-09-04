@@ -1,36 +1,18 @@
-var request = require('request');
 var cheerio = require('cheerio');
-var cookieJar = request.jar();
 
-function setCookiesOnJar(cookiesString) {
-  var url = "http://micampus.mxl.cetys.mx";
+var grades = {
+  url: 'http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Consultar+boleta',
+  parse: function(body){
 
-  var cookies = cookiesString.split(" ");
+    var i = 3; // first row of table to start 
+    var j = 8; // first column with grades
 
-  cookies.forEach(function(cookie){
-    cookieJar.setCookie(cookie, url);
-  });
-}
-
-module.exports = function(req, res){
-
-  setCookiesOnJar(res.locals.cookies);
-
-  var getOptions= {
-    url: 'http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Consultar+boleta', 
-    jar: cookieJar
-  };
-  var i = 3; // first row of table to start 
-  var j = 8; // first column with grades
-
-  function Course(name) {
-    this.name = name;
-    this.grades = [];
-  }
- 
-  request.get(getOptions, function(err, response, body){
+    function Course(name) {
+     this.name = name;
+     this.grades = [];
+    }
+    
     var $ = cheerio.load(body);
-
     var rows = $('table.alumnos-tabla').children();
     var jsonResponse = {courses: []};
 
@@ -44,8 +26,8 @@ module.exports = function(req, res){
       }
       jsonResponse.courses.push(course);
     }
-    console.log(JSON.stringify(jsonResponse));
-    res.send(JSON.stringify(jsonResponse));
-
-  });
+    return jsonResponse;
+  }
 }
+
+module.exports = grades; 
