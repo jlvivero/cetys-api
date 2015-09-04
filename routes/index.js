@@ -4,11 +4,9 @@ var router = express.Router();
 var auth = require('./auth');
 var grades = require('./grades');
 var schedule = require('./schedule');
-var setRequestEndpoint = require("../helpers/setRequestEndpoint")
 
 router.post('/login', auth.login);
-router.get('/api/schedule',setRequestEndpoint(schedule));
-router.get('/api/grades',setRequestEndpoint(grades));
-router.get('/api/email',setRequestEndpoint(mail));
+router.get('/api/schedule',schedule);
+router.get('/api/grades',grades);
 
 module.exports = router;
