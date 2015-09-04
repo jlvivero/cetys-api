@@ -10,23 +10,28 @@ function setCookiesOnJar(cookiesString) {
   });
 }
 
-function sendRequest(endpoint, callback){
+function sendRequest(endpoint, callBody, callback){
+  if(endpoint.url.length === 0) {
+  var jsonResponse = endpoint.parse(callBody);
+    callback(jsonResponse);
+    return;
+  }
+  
   var getOptions= {
-    url: endpoint.url, 
+    url: endpoint.url.pop(), 
     jar: cookieJar
-  };
+  }
 
   request.get(getOptions, function(err,response,body){
-    var jsonResponse = endpoint.parse(body);
-    callback(jsonResponse);
+    sendRequest (endpoint, body + callBody, callback);
   });
-}
+ }
 
 function setRequestEndpoint(endpoint){
   return function(req,res){
 
     setCookiesOnJar(res.locals.cookies);
-    sendRequest(endpoint, function(jsonResponse){
+    sendRequest(endpoint, "", function(jsonResponse){
       res.send(JSON.stringify(jsonResponse));
     });
   }
