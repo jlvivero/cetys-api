@@ -1,7 +1,7 @@
 var cheerio = require('cheerio');
 
 var grades = {
-  url: 'http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Consultar+boleta',
+  url: ['http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Consultar+boleta'],
   parse: function(body){
 
     var i = 3; // first row of table to start 

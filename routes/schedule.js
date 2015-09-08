@@ -1,7 +1,7 @@
 var cheerio = require('cheerio');
 
 var schedule = {
-  url: 'http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Horario',
+  url: ['http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Horario'],
   parse: function(body){
     var i = 0;
     var j = 1;
