@@ -59,7 +59,7 @@ var auth = {
 
 // private method
 function genTokenAndSaveInDB(user, cookies) {
-  var expires = expiresInHours(2); // 2 hours
+  var expires = expiresInHours(12); // 2 hours
     var token = jwt.encode({
       user: user,
       exp: expires
