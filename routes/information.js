@@ -9,6 +9,7 @@ var information = {
   parse: function(body){
     
     var $ = cheerio.load(body);
+   // console.log($.html());
     
     /**************************************************************************************
     *                                       Email parser                                  *
@@ -41,4 +42,4 @@ var information = {
 
 }
 
-module.exports = information; 
+module.exports = information;

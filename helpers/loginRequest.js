@@ -5,6 +5,7 @@ var ok = false;
 
 
 var login = function(user, password, callback) {
+  cookieJar = request.jar();
   fetchCookies(user, password, callback);
 }
 
@@ -46,7 +47,6 @@ var fetchSecondCookie = function(user, password, callback) {
       callback(error,"");
     }
     var cookies = cookieJar.getCookieString('http://micampus.mxl.cetys.mx');
-    console.log(cookies);
     validateOk(cookies,callback);
 
   });
