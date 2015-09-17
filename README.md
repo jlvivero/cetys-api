@@ -3,7 +3,7 @@ An API that scrapes information from Cetys made for and by Cetys students.
 
 ##How to use
 1. 
-   Send a **POST** request to https://pacific-crag-2553.herokuapp.com/login with the 
+   Send a **POST** request to https://cetys-api.herokuapp.com/login with the 
    next patameters in the body:
 
    **user**=m0xxxxx  
@@ -20,8 +20,8 @@ An API that scrapes information from Cetys made for and by Cetys students.
 
 3. 
    Now you can do **GET** requests to  
-   https://pacific-crag-2553.herokuapp.com/api/grades or  
-   https://pacific-crag-2553.herokuapp.com/api/schedule  
+   https://cetys-api.herokuapp.com/api/grades or  
+   https://cetys-api.herokuapp.com/api/schedule  
 
    Adding a **HEADER**:  
    '*access-token*' = (token recieved in the last step)
@@ -46,7 +46,7 @@ Un api para consumir datos de los alumnos de cetys
 
 ##Instrucciones de uso
 1. 
-   Manda un **POST** request a https://pacific-crag-2553.herokuapp.com/login con los
+   Manda un **POST** request a https://cetys-api.herokuapp.com/login con los
    parametros incuidos en el body:
 
    **user**=m0xxxxx  
@@ -63,8 +63,8 @@ Un api para consumir datos de los alumnos de cetys
 
 3. 
    Ahora puedes hacer un **GET** request a  
-   https://pacific-crag-2553.herokuapp.com/api/grades o  
-   https://pacific-crag-2553.herokuapp.com/api/schedule
+   https://cetys-api.herokuapp.com/api/grades o  
+   https://cetys-api.herokuapp.com/api/schedule
 
    añadiendo un **HEADER**:  
    '*access-token*' = (token-recibida-en-el-paso-anterior)
