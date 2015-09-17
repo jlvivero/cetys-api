@@ -1,10 +1,11 @@
 var cheerio = require('cheerio');
 var request = require('request');
-var cookieJar = request.jar();
+var cookieJar = null
 var ok = false;
 
 
 var login = function(user, password, callback) {
+  cookieJar = request.jar();
   fetchCookies(user, password, callback);
 }
 
