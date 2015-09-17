@@ -1,6 +1,6 @@
 var cheerio = require('cheerio');
 var request = require('request');
-var cookieJar = null
+var cookieJar = request.jar();
 var ok = false;
 
 
@@ -47,7 +47,6 @@ var fetchSecondCookie = function(user, password, callback) {
       callback(error,"");
     }
     var cookies = cookieJar.getCookieString('http://micampus.mxl.cetys.mx');
-    console.log(cookies);
     validateOk(cookies,callback);
 
   });
