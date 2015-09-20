@@ -20,8 +20,9 @@ An API that scrapes information from Cetys made for and by Cetys students.
 
 3. 
    Now you can do **GET** requests to  
-   https://cetys-api.herokuapp.com/api/grades or  
-   https://cetys-api.herokuapp.com/api/schedule  
+   current grades: https://cetys-api.herokuapp.com/api/grades   
+   current schedule: https://cetys-api.herokuapp.com/api/schedule  
+   name and email: https://cetys-api.herokuapp.com/api/general  
 
    Adding a **HEADER**:  
    '*access-token*' = (token recieved in the last step)
@@ -63,8 +64,9 @@ Un api para consumir datos de los alumnos de cetys
 
 3. 
    Ahora puedes hacer un **GET** request a  
-   https://cetys-api.herokuapp.com/api/grades o  
-   https://cetys-api.herokuapp.com/api/schedule
+   calificaciones actuales: https://cetys-api.herokuapp.com/api/grades   
+   horario actual: https://cetys-api.herokuapp.com/api/schedule  
+   nombre y correo: https://cetys-api.herokuapp.com/api/general
 
    añadiendo un **HEADER**:  
    '*access-token*' = (token-recibida-en-el-paso-anterior)
