@@ -5,7 +5,7 @@ var cheerio = require('cheerio');
 
 var information = {
   url: ['http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Datos+generales',
-  'http://micampus.mxl.cetys.mx/portal/auth/portal/default/Financiero/Pago+de+tr%C3%A1mites+escolares'],
+  'http://micampus.mxl.cetys.mx/portal/auth/portal/default/Academico/Plan+de+estudios'],
   parse: function(body){
     
     var $ = cheerio.load(body);
@@ -26,7 +26,7 @@ var information = {
     /**************************************************************************************
     *                                       Name parser                                   *
     **************************************************************************************/
-    var nameContent = $('td.alumnos-encabezado-texto').eq(0).text();
+    var nameContent = $('div.portlet').children().eq(2).find('tr').children().eq(3).text().trim();
     var splitName = nameContent.split(",");
     var fullName = splitName[1] + " " + splitName[0]
     jsonResponse.name = fullName.trim();
