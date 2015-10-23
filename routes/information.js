@@ -28,7 +28,7 @@ var information = {
     **************************************************************************************/
     var nameContent = $('div.portlet').children().eq(2).find('tr').children().eq(3).text().trim();
     var splitName = nameContent.split(",");
-    var fullName = splitName[1] + " " + splitName[0]
+    var fullName = splitName[1] ? splitName[1] + " " + splitName[0] : splitName[0];
     jsonResponse.name = fullName.trim();
 
 
