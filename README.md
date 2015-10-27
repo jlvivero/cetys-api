@@ -22,7 +22,7 @@ An API that scrapes information from Cetys made for and by Cetys students.
    Now you can do **GET** requests to  
    current grades: https://cetys-api.herokuapp.com/api/grades   
    current schedule: https://cetys-api.herokuapp.com/api/schedule  
-   name and email: https://cetys-api.herokuapp.com/api/general
+   name and email: https://cetys-api.herokuapp.com/api/general  
    Academic History: https://cetys-api.herokuapp.com/api/academicHistory
 
    Adding a **HEADER**:  
