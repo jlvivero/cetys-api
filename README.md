@@ -2,32 +2,33 @@
 An API that scrapes information from Cetys made for and by Cetys students.
 
 ##How to use
-1. 
-   Send a **POST** request to https://cetys-api.herokuapp.com/login with the 
+1.
+   Send a **POST** request to https://cetys-api.herokuapp.com/login with the
    next patameters in the body:
 
    **user**=m0xxxxx  
    **password**=xxxxxxx  
-   
+
    Using the same credentials you use as your student login in the university's web page
 
-2. 
+2.
    The **POST** requests returns a JSON with 3 properties:
 
    *token*: the access token for the session  
    *expires*: the expiration time for the current session (it's 2 hours long at the moment)  
    *user*: the registration number you logged in with  
 
-3. 
+3.
    Now you can do **GET** requests to  
    current grades: https://cetys-api.herokuapp.com/api/grades   
    current schedule: https://cetys-api.herokuapp.com/api/schedule  
-   name and email: https://cetys-api.herokuapp.com/api/general  
+   name and email: https://cetys-api.herokuapp.com/api/general
+   Academic History: https://cetys-api.herokuapp.com/api/academicHistory
 
    Adding a **HEADER**:  
    '*access-token*' = (token recieved in the last step)
 
-4. 
+4.
    You'll now recieve a JSON with the information  you need!
 
 ##To Contribute
@@ -36,17 +37,17 @@ We need:
 - Testing
 - Someone from another Cetys campus, to help make modifications and tests for it to work on either
 
-### Contributors 
+### Contributors
 Thanks to Jesus Lopez for adding /schedule and the welcome message.
 
-#Spanish 
+#Spanish
 
 #cetys-api
 
 Un api para consumir datos de los alumnos de cetys
 
 ##Instrucciones de uso
-1. 
+1.
    Manda un **POST** request a https://cetys-api.herokuapp.com/login con los
    parametros incuidos en el body:
 
@@ -55,27 +56,28 @@ Un api para consumir datos de los alumnos de cetys
 
    usando las mismas credenciales con las que haces login al portal.
 
-2. 
+2.
    El **POST** request a /login regresa un JSON con 3 propiedades:
 
    *token*: el acces token para la sesión actual  
    *expires*: el tiempo que durará la sesión activa (acutalmente son dos horas)  
    *user*: la matrícula que con la que hiciste login
 
-3. 
+3.
    Ahora puedes hacer un **GET** request a  
    calificaciones actuales: https://cetys-api.herokuapp.com/api/grades   
    horario actual: https://cetys-api.herokuapp.com/api/schedule  
    nombre y correo: https://cetys-api.herokuapp.com/api/general
+   Historial Academico: https://cetys-api.herokuapp.com/api/academicHistory
 
    añadiendo un **HEADER**:  
    '*access-token*' = (token-recibida-en-el-paso-anterior)
 
-4. 
+4.
    ¡Ahora recibirás un JSON con la información que necesitas!
 
 ## Contribuye
-Se necesitan : 
+Se necesitan :
 - Ejemplos en diferentes lenguajes
 - Más scapers con endpoints a más paginas del portal
 - Tests
