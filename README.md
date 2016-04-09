@@ -4,7 +4,7 @@ An API that scrapes information from Cetys made for and by Cetys students.
 ##How to use
 1.
    Send a **POST** request to https://cetys-api.herokuapp.com/login with the
-   next patameters in the body:
+   next parameters in the body:
 
    **user**=m0xxxxx  
    **password**=xxxxxxx  
